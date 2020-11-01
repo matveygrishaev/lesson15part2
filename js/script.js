@@ -1,30 +1,19 @@
-'use strick';
+'use strict';
 
- class First {
-    constructor () {
+class First {
+  hello() {
+    console.log("Привет я метод родителя!");
+  }
+}
 
-    }
-    hello () {
-      console.log("Привет я метод родителя!");
-    }
- }
- 
- const first = new First();
- class Second {
-   constructor () {
+class Second extends First {
+  hello() {
+    super.hello();
+    console.log("А я наследуемый метод!");
+  }
+}
 
-   }
+const first = new First();
+const second = new Second();
 
-   hello () {
-     first.hello();
-     console.log("А я наследуемый метод!");
-   }
- }
-
- const second = new Second();
-
- first.hello();
- second.hello();
-
- //"Привет я метод родителя!"
- //"А я наследуемый метод!"
+second.hello();
